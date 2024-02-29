@@ -20,19 +20,3 @@ services:
 
   networks:
     my-network:
-
-
-
-# ovo je za slucaj da prvobitno nismo kreirali image preko cmd koristeci Dockerfile
-# atribut dockerfile je realtivna putanja ka Dockerfile u odnosu na context
-# (relativna putanja projekta u odnosu na docker-compose file)
-
-#  backend:
-#    image: spring-boot-proj3-image
-#    build:
-#      context: Project3_Basic_SpringBoot_JAR/Project3_Basic_SpringBoot_JAR
-#      dockerfile: Dockerfile
-#    ports:
-#      - 8080:8080
-
-
