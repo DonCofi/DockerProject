@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  spring-service:
+    image: spring-boot-proj3-jar
+    networks:
+      - my-network
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+
+  database:
+    image: mysql:5
+    networks:
+      - my-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=my_database
+
+  networks:
+    my-network:
+
+
+
+# ovo je za slucaj da prvobitno nismo kreirali image preko cmd koristeci Dockerfile
+# atribut dockerfile je realtivna putanja ka Dockerfile u odnosu na context
+# (relativna putanja projekta u odnosu na docker-compose file)
+
+#  backend:
+#    image: spring-boot-proj3-image
+#    build:
+#      context: Project3_Basic_SpringBoot_JAR/Project3_Basic_SpringBoot_JAR
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8080:8080
+
+
