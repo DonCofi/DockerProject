@@ -27,20 +27,16 @@ public class WorkerController {
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Worker>>  getAllWorkers (){
-        System.out.println("USAO U GET ALL");
         return ResponseEntity.ok(workerService.getWorkers());
     }
 
     @GetMapping(value = "/get/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Worker> getWorkerById(@PathVariable BigInteger id) {
-        System.out.println("USAO U GET ID");
         Optional<Worker> worker = workerService.findWorkerById(id);
         if (worker.isPresent()) {
-            System.out.println("NASAO");
             return ResponseEntity.ok(worker.get());
         }
         else {
-            System.out.println("NIJE NASAO");
             return ResponseEntity.notFound().build();
         }
     }
